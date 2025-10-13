@@ -49,7 +49,7 @@ Robust ETL pipeline to process **product JSON data** from a RESTful API and load
 
 ### 3️⃣ Loading
 - Loads into **staging table** first  
-- Performs **UPSERT** into main table  
+- Loads into PostgreSQL db.
 - Transaction-managed, automatic rollback on errors  
 - Optionally drops staging table  
 
