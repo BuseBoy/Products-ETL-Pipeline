@@ -48,7 +48,7 @@ This project builds a **robust ETL pipeline** for processing **product JSON data
 
 
 - **Postman:**  
-  - Used for testing API endpoints  
+  - Used for testing API endpoint  
   - Performed GET requests with `limit` & `skip` parameters  
   - Used **Collection Runner** to simulate batch/pagination processing  
 
