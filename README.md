@@ -24,26 +24,50 @@ This project builds a **robust ETL pipeline** for processing **product JSON data
 
 **Objectives:**
 
-- Extract product data from multiple JSON files  
+- Extract product data by pagination and converts the data from each file into a Python DataFrame.
 - Transform data: clean, normalize, validate, calculate `price_with_discount`  
-- Load data into PostgreSQL using **staging-merge pattern**  
+- Load data into PostgreSQL using **staging-insert pattern**  
 - Log all steps and errors for traceability  
+
+**Pipeline Structure:**
+
+- **API Type:** RESTful JSON API  
+- **Postman:** GET requests with `limit` & `skip` parameters, using **Collection Runner** to simulate batch/pagination processing
+- **ETL Process:**  
+  - **Extract:** Read JSON from API  
+  - **Transform:** Clean, normalize, calculate fields like `price_with_discount`  
+  - **Load:** Insert/Update into PostgreSQL using staging table  
+- **Logging:** Tracks all steps and errors for traceability
+
+
+
 
 ---
 
 ## 🛠️ Technologies & Libraries Used
 
+
+- **Postman:**  
+  - Used for testing API endpoints  
+  - Performed GET requests with `limit` & `skip` parameters  
+  - Used **Collection Runner** to simulate batch/pagination processing  
+
 - **Python Standard Libraries:**  
   - `json` → Read & parse JSON files  
   - `logging` → Log pipeline activities and errors  
+
 - **Data Handling:**  
   - `pandas` → Data manipulation, explode nested reviews, cleaning  
-- **Database & ORM:**  
+
+- **Database Connection:**  
   - `sqlalchemy` → PostgreSQL connection, transaction management  
+
 - **Database Engine:**  
-  - PostgreSQL → Storing clean product data  
+  - **PostgreSQL** → Storing clean product data  
+
 - **Notebook:**  
-  - Jupyter Notebook → Analysis & documentation  
+  - **Jupyter Notebook** → Analysis & documentation  
+
 
 ---
 
