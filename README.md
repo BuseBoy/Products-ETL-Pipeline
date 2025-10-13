@@ -1,6 +1,5 @@
 # ETL Products Data Pipeline
 
-https://dummyjson.com/products API link
 
 <div align="center">
   
@@ -11,7 +10,7 @@ https://dummyjson.com/products API link
   [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat&logo=jupyter&logoColor=white)](https://jupyter.org)
   [![Logging](https://img.shields.io/badge/Logging-Standard-yellow?style=flat)](https://docs.python.org/3/library/logging.html)
   [![JSON](https://img.shields.io/badge/JSON-Standard-blue?style=flat)](https://docs.python.org/3/library/json.html)
-
+ [![Postman](https://img.shields.io/badge/Postman-Standard-green?style=flat)](https://docs.python.org/3/library/json.html)
   [![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat&logo=progress&logoColor=white)](https://github.com)
   [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=flat&logo=github&logoColor=white)](https://github.com)
   
@@ -77,7 +76,7 @@ This project builds a **robust ETL pipeline** for processing **product JSON data
 
 ## 📂 Dataset
 
-- **Source:** JSON files (e.g., `0.json`, `1.json`, …)  
+- **Data:** https://dummyjson.com/products API link
 - **Fields:** `id`, `title`, `category`, `price`, `discountPercentage`, `rating`, `brand`, `reviews`  
 
 ---
