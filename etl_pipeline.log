@@ -1,0 +1,29 @@
+2025-10-13 10:20:27,912 - INFO - ETL Pipeline started
+2025-10-13 10:20:27,961 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/0.json
+2025-10-13 10:20:27,962 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/1.json
+2025-10-13 10:20:27,962 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/2.json
+2025-10-13 10:20:27,963 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/3.json
+2025-10-13 10:20:27,964 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/4.json
+2025-10-13 10:20:27,964 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/5.json
+2025-10-13 10:20:27,965 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/6.json
+2025-10-13 10:20:27,965 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/7.json
+2025-10-13 10:20:27,966 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/8.json
+2025-10-13 10:20:27,967 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/9.json
+2025-10-13 10:20:27,967 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/10.json
+2025-10-13 10:20:27,967 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/11.json
+2025-10-13 10:20:27,968 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/12.json
+2025-10-13 10:20:27,969 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/13.json
+2025-10-13 10:20:27,969 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/14.json
+2025-10-13 10:20:27,970 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/15.json
+2025-10-13 10:20:27,970 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/16.json
+2025-10-13 10:20:27,972 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/17.json
+2025-10-13 10:20:27,972 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/18.json
+2025-10-13 10:20:27,973 - INFO - Successfully processed /Users/buse/Desktop/NumPy/ETL-pipeline/json-pagination/19.json
+2025-10-13 10:20:27,973 - INFO - Processed 20/20 files successfully
+2025-10-13 10:20:27,978 - INFO - Extract completed: 100 raw records
+2025-10-13 10:20:27,983 - INFO - Transform completed: 300 clean records
+2025-10-13 10:20:28,080 - INFO - Loaded 300 records to etl_schema.products_staging
+2025-10-13 10:20:28,084 - INFO - Inserted data to etl_schema.products
+2025-10-13 10:20:28,085 - INFO - Dropped staging table
+2025-10-13 10:20:28,087 - INFO - === ETL Pipeline completed successfully! ===
+2025-10-13 10:20:28,087 - INFO - Database connection closed
