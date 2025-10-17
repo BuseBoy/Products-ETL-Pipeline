@@ -17,7 +17,7 @@ Robust ETL pipeline to process **product JSON data** from a RESTful API and load
 **Notes:**
 - Pagination → Normally we can GET the full data since API is small, but I did to make it compatible with real business cases.
 - Homogeneous JSON structure → `load.json` used.
-- Authorization test done (dummy API won’t give error, done as a concept) 
+
 
 ---
 
