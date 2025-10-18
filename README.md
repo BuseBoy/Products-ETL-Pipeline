@@ -1,79 +1,79 @@
-# ETL Products Data Pipeline
+# ETL Product Data Pipeline
 
-**Technologies:** Python, Pandas, SQLAlchemy, PostgreSQL, Jupyter, Logging, JSON, Postman  
-
----
+**Technologies:** Python, Pandas, SQLAlchemy, PostgreSQL, Requests, Logging, Postman
 
 ## 📌 Project Overview
+Robust ETL pipeline to process product JSON data from a RESTful API and load it into PostgreSQL db.
 
-Robust ETL pipeline to process **product JSON data** from a RESTful API and load it into **PostgreSQL db**.  
+### Objectives:
+* Extract product data via API pagination using Postman for testing and Python for automation
+* Transform data: clean, normalize, validate, calculate `price_with_discount`
+* Load into PostgreSQL using staging-insert pattern
+* Log all steps and errors for traceability
 
-**Objectives:**
-- Extract product data via **API pagination** using Postman Collection Runner (`limit`/`skip`) and Python loops  
-- Transform data: clean, normalize, validate, calculate `price_with_discount`  
-- Load into PostgreSQL using **staging-insert pattern**  
-- Log all steps and errors for traceability  
-
-**Notes:**
-- Pagination → Normally we can GET the full data since API is small, but I did to make it compatible with real business cases.
-- Homogeneous JSON structure → `load.json` used.
-
+### Notes:
+* **API Testing:** Used Postman to test endpoints, validate response structures, and verify pagination before Python implementation
+* **Pagination Logic:** Implements `limit`/`skip` pattern, stops when `total` records reached
+* **Staging Pattern:** Uses temporary staging table for atomic inserts
 
 ---
 
 ## 🛠️ Technologies & Libraries
 
-- **Postman:** GET requests with `limit` & `skip`, batch simulation with Collection Runner  
-- **Python Standard Libraries:** `json`, `logging`  
-- **Data Handling:** `pandas` (explode nested reviews, cleaning)  
-- **Database:** `sqlalchemy` for connection & transactions, PostgreSQL for storage  
-- **Notebook:** Jupyter for analysis & documentation  
+* **Postman:** API endpoint testing, response validation, pagination verification
+* **Python Standard Libraries:** `logging`
+* **Data Handling:** `pandas` (explode nested reviews, cleaning)
+* **API Client:** `requests` with Session for connection pooling
+* **Database:** `sqlalchemy` for connection & transactions, PostgreSQL for storage
 
 ---
 
 ## 🔧 Pipeline Steps
 
 ### 1️⃣ Extraction
-- Reads multiple JSON files or API responses  
-- Handles missing files & invalid JSON  
-- Extracts `products` key if exists, else full JSON  
-- Combines into single raw DataFrame  
+* Fetches paginated data from REST API with configurable limits
+* Handles missing keys, extracts `products` key if exists, else full JSON
+* Stops early when total record count reached
+* Skips empty pages, continues fetching
+* Combines into single raw DataFrame
 
 ### 2️⃣ Transformation
-- Explodes nested `reviews` into separate rows  
-- Extracts `review_rating`  
-- Drops missing essential fields (`id`, `title`, `price`, `review_rating`)  
-- Validates prices (`>0`) and discounts (`0–100%`)  
-- Calculates `price_with_discount`  
-- Converts types and reorders columns  
+* Explodes nested `reviews` into separate rows
+* Extracts `review_rating`
+* Drops missing essential fields (`id`, `title`, `price`, `review_rating`)
+* Validates prices (`>0`) and discounts (`0–100%`)
+* Calculates `price_with_discount`
+* Converts types and reorders columns
 
 ### 3️⃣ Loading
-- Loads into **staging table** first  
-- Loads into PostgreSQL db.
-- Transaction-managed, automatic rollback on errors  
-- Optionally drops staging table  
+* Loads into staging table first
+* Inserts into PostgreSQL with timestamps (`created_at`, `updated_at`)
+* Transaction-managed, automatic rollback on errors
+* Optionally drops staging table
 
 ---
 
 ## 📂 Dataset
 
-- Source: [DummyJSON Products API](https://dummyjson.com/products)  
-- Key fields: `id`, `title`, `category`, `price`, `discountPercentage`, `rating`, `brand`, `reviews`  
+* **Source:** DummyJSON Products API
+* **Key fields:** `id`, `title`, `category`, `price`, `discountPercentage`, `rating`, `brand`, `reviews`
 
 ---
 
 ## 📊 Example Insights
 
-- Detects invalid prices or discounts  
-- Normalizes nested reviews into rows  
-- Calculates discounted prices for analytics  
+* Detects invalid prices or discounts
+* Normalizes nested reviews into rows
+* Calculates discounted prices for analytics
 
 ---
 
 ## 🚀 How to Run
-
 ```bash
 git clone https://github.com/YourUsername/ETL-Products-Pipeline.git
 cd ETL-Products-Pipeline
-pip install pandas sqlalchemy psycopg2-binary
-jupyter notebook etl_pipeline.ipynb
+pip install pandas sqlalchemy psycopg2-binary requests
+python etl_pipeline.py
+```
+
+---
