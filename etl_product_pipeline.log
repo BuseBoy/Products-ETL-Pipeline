@@ -1,2 +1,19 @@
 2025-10-18 18:06:28,635 - INFO - ETL pipeline started
 2025-10-18 18:06:34,785 - INFO - ETL pipeline started
+2025-10-18 18:13:04,438 - INFO - ETL pipeline started
+2025-10-18 18:13:05,069 - INFO - Page 0: 30 records
+2025-10-18 18:13:05,189 - INFO - Page 1: 30 records
+2025-10-18 18:13:05,305 - INFO - Page 2: 30 records
+2025-10-18 18:13:05,421 - INFO - Page 3: 30 records
+2025-10-18 18:13:05,623 - INFO - Page 4: 30 records
+2025-10-18 18:13:05,737 - INFO - Page 5: 30 records
+2025-10-18 18:13:05,852 - INFO - Page 6: 14 records
+2025-10-18 18:13:05,853 - INFO - All 194 records fetched
+2025-10-18 18:13:05,863 - INFO - Extract completed: 194 records fetched
+2025-10-18 18:13:05,864 - INFO - Extract completed: 194 raw records
+2025-10-18 18:13:05,888 - INFO - Transform completed: 582 clean records
+2025-10-18 18:13:06,979 - INFO - Loaded 582 records to etl_schema.products_staging
+2025-10-18 18:13:07,002 - INFO - Inserted data to etl_schema.products
+2025-10-18 18:13:07,016 - INFO - Dropped staging table
+2025-10-18 18:13:07,021 - INFO - ETL Pipeline completed successfully!
+2025-10-18 18:13:07,021 - INFO - Database connection closed
