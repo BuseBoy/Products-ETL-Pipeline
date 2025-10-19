@@ -32,7 +32,7 @@ Robust ETL pipeline to process product JSON data from a RESTful API and load it 
 
 ### 1️⃣ Extraction
 * Fetches paginated data from REST API with configurable limits
-* Handles missing keys, extracts `products` key if exists, else full JSON
+* Extracts `products` key if exists, else uses full JSON response
 * Stops early when total record count reached
 * Skips empty pages, continues fetching
 * Combines into single raw DataFrame
