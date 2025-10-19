@@ -19,12 +19,12 @@ Robust ETL pipeline to process product JSON data from a RESTful API and load it 
 ---
 
 ## 🛠️ Technologies & Libraries
-
 * **Postman:** API endpoint testing, response validation, pagination verification
 * **Python Standard Libraries:** `logging`
 * **Data Handling:** `pandas` (explode nested reviews, cleaning)
 * **API Client:** `requests` with Session for connection pooling
 * **Database:** `sqlalchemy` for connection & transactions, PostgreSQL for storage
+* **Development:** Jupyter Notebook for analysis & documentation
 
 ---
 
@@ -73,7 +73,7 @@ Robust ETL pipeline to process product JSON data from a RESTful API and load it 
 git clone https://github.com/YourUsername/ETL-Products-Pipeline.git
 cd ETL-Products-Pipeline
 pip install pandas sqlalchemy psycopg2-binary requests
-python etl_pipeline.py
+python etl_pipeline.ipynb
 ```
 
 ---
