@@ -73,7 +73,7 @@ Robust ETL pipeline to process product JSON data from a RESTful API and load it 
 git clone https://github.com/YourUsername/ETL-Products-Pipeline.git
 cd ETL-Products-Pipeline
 pip install pandas sqlalchemy psycopg2-binary requests
-python etl_pipeline.ipynb
+python etl_product_pipeline.ipynb
 ```
 
 ---
