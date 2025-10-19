@@ -6,13 +6,13 @@
 Robust ETL pipeline to process product JSON data from a RESTful API and load it into PostgreSQL db.
 
 ### Objectives:
-* Extract product data via API pagination using Postman for testing and Python for automation
+* Extract product data from API endpoint and return combined data from all pages as a pandas DataFrame.
 * Transform data: clean, normalize, validate, calculate `price_with_discount`
 * Load into PostgreSQL using staging-insert pattern
 * Log all steps and errors for traceability
 
 ### Notes:
-* **API Testing:** Used Postman to test endpoints, validate response structures, and verify pagination before Python implementation
+* **API Testing:** Used Postman to test endpoints, validate response structures
 * **Pagination Logic:** Implements `limit`/`skip` pattern, stops when `total` records reached
 * **Staging Pattern:** Uses temporary staging table for atomic inserts
 
