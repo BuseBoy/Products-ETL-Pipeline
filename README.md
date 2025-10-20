@@ -1,79 +1,53 @@
 # ETL Product Data Pipeline
 
-**Technologies:** Python, Pandas, SQLAlchemy, PostgreSQL, Requests, Logging, Postman
+**Technologies:** Python, Pandas, SQLAlchemy, PostgreSQL, Requests, Logging
 
 ## 📌 Project Overview
-Robust ETL pipeline to process product JSON data from a RESTful API and load it into PostgreSQL db.
+This project implements a robust ETL pipeline to process product JSON data from an API and load it into a PostgreSQL database. The pipeline:
 
-### Objectives:
-* Extract product data from API endpoint and return combined data from all pages as a pandas DataFrame.
-* Transform data: clean, normalize, validate, calculate `price_with_discount`
-* Load into PostgreSQL using staging-insert pattern
-* Log all steps and errors for traceability
-
-### Notes:
-* **API Testing:** Used Postman to test endpoints, validate response structures
-* **Pagination Logic:** Implements `limit`/`skip` pattern, stops when `total` records reached
-* **Staging Pattern:** Uses temporary staging table for atomic inserts
-
----
-
-## 🛠️ Technologies & Libraries
-* **Postman:** API endpoint testing, response validation, pagination verification
-* **Python Standard Libraries:** `logging`
-* **Data Handling:** `pandas` (explode nested reviews, cleaning)
-* **API Client:** `requests` with Session for connection pooling
-* **Database:** `sqlalchemy` for connection & transactions, PostgreSQL for storage
-* **Development:** Jupyter Notebook for analysis & documentation
+- Extracts product data from API endpoints and combines all pages into a pandas DataFrame.
+- Transforms data: normalizes column names, explodes nested reviews, removes duplicates/missing values, calculates discounted price.
+- Loads cleaned data into PostgreSQL using a staging-to-main table pattern with conflict handling.
+- Logs all steps for traceability and debugging.
 
 ---
 
 ## 🔧 Pipeline Steps
 
 ### 1️⃣ Extraction
-* Fetches paginated data from REST API with configurable limits
-* Extracts `products` key if exists, else uses full JSON response
-* Stops early when total record count reached
-* Skips empty pages, continues fetching
-* Combines into single raw DataFrame
+- Fetches paginated data from API with `limit`/`skip` logic.
+- Extracts `products` key if present, else uses full JSON.
+- Skips empty pages and stops once all records are fetched.
+- Returns a combined raw DataFrame.
 
 ### 2️⃣ Transformation
-* Explodes nested `reviews` into separate rows
-* Extracts `review_rating`
-* Drops missing essential fields (`id`, `title`, `price`, `review_rating`)
-* Validates prices (`>0`) and discounts (`0–100%`)
-* Calculates `price_with_discount`
-* Converts types and reorders columns
+- Explodes nested `reviews` into separate rows.
+- Extracts `reviewer_rating` and `reviewer_name`.
+- Drops rows with missing critical fields and duplicate reviews.
+- Validates `price` (>0) and `discount_percentage` (0–100%).
+- Calculates `price_with_discount`.
+- Standardizes column types and order.
+- Returns a clean, ready-to-load DataFrame.
 
 ### 3️⃣ Loading
-* Loads into staging table first
-* Inserts into PostgreSQL with timestamps (`created_at`, `updated_at`)
-* Transaction-managed, automatic rollback on errors
-* Optionally drops staging table
+- Loads data into a staging table temporarily.
+- Merges staging into main table, updating existing rows on conflict (`id + reviewer_name`).
+- Automatically sets `created_at` and `updated_at`.
+- Uses transactions for atomic operations.
+- Optionally drops the staging table after load.
 
 ---
 
 ## 📂 Dataset
-
-* **Source:** DummyJSON Products API
-* **Key fields:** `id`, `title`, `category`, `price`, `discountPercentage`, `rating`, `brand`, `reviews`
-
----
-
-## 📊 Example Insights
-
-* Detects invalid prices or discounts
-* Normalizes nested reviews into rows
-* Calculates discounted prices for analytics
+- **Source:** DummyJSON Products API
+- **Key fields:** `id`, `title`, `category`, `price`, `discountPercentage`, `rating`, `brand`, `reviews`
 
 ---
 
 ## 🚀 How to Run
+Clone the repository, install dependencies, and run the pipeline:
+
 ```bash
 git clone https://github.com/YourUsername/ETL-Products-Pipeline.git
 cd ETL-Products-Pipeline
 pip install pandas sqlalchemy psycopg2-binary requests
-python etl_product_pipeline.ipynb
-```
-
----
